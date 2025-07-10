@@ -9,533 +9,185 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: white;
+    background-color: #f0f0f0; /* Cor de fundo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
+/* Header para o logo */
 header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: absolute;
+    top: 20px;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centralização perfeita */
     z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 20px;
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #e74c3c;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 180px; /* Tamanho menor para o logo */
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #999;
 }
 
-nav ul {
+/* Container principal da promoção */
+.promo-container {
     display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-nav a:hover {
-    color: #e74c3c;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #e74c3c;
-    transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* Main content */
-main {
-    margin-top: 80px;
-    padding: 2rem 0;
-}
-
-/* Carousel container */
-.carousel-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    width: 90vw; /* Largura para telas grandes */
+    height: 90vh; /* Altura para telas grandes */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-}
-
-.carousel-wrapper {
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-slides {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.slide {
-    min-width: 100%;
-    padding: 3rem;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.slide-content {
-    max-width: 100%;
-}
-
-/* Slide 1 - Promoção */
-#slide-promocao {
-    background: lightgray;
-}
-
-.promo-section {
-    text-align: center;
-}
-
-.promo-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.day-display {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #e74c3c;
-    margin-bottom: 2rem;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 25px;
-    display: inline-block;
+    padding: 30px;
+    align-items: center; /* Centraliza o conteúdo verticalmente dentro do container */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do container */
 }
 
 .promo-image-container {
-    margin: 2rem 0;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 30px;
 }
 
-#promo-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.promo-image-container img {
+    width: 500px !important;
+    height: auto;
+    border-radius: 10px;
 }
 
-.promo-image-container:hover #promo-image {
-    transform: scale(1.05);
+.promo-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.promo-details h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #30b27f; /* Cor principal */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.day-display {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+    padding: 8px 15px;
+    background-color: rgba(48, 178, 127, 0.1); /* Fundo suave com a cor principal */
+    border-radius: 20px;
+    display: inline-block;
 }
 
 .promo-details h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .promo-details p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #666;
 }
 
 .price-container {
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
 }
 
 .old-price {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #999;
     text-decoration: line-through;
-    margin-right: 1rem;
+    margin-right: 15px;
 }
 
 .new-price {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #e74c3c;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #30b27f; /* Cor principal */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button {
-    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    background-color: #30b27f; /* Cor principal */
     color: white;
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 15px 30px;
+    font-size: 1.3rem;
     font-weight: bold;
     border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+    cursor: default; /* Remover cursor de ponteiro */
+    box-shadow: 0 8px 20px rgba(48, 178, 127, 0.3);
     text-transform: uppercase;
     letter-spacing: 1px;
+    outline: none;
 }
 
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.4);
+
+.promo-container {
+    display: flex !important;
 }
 
-/* Slide 2 - Cardápio */
-#slide-cardapio {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+.promo-image-container, .promo-details {
+    display: block !important;
+    flex: none !important;
+    width: auto !important;
+    padding: 0 !important;
 }
 
-#slide-cardapio h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #2c3e50;
+.promo-image-container {
+    padding-right: 30px !important;
 }
 
-.menu-table-container {
-    overflow-x: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.promo-details {
+    padding-left: 30px !important;
 }
 
-.menu-table {
+/* Ajustes para a imagem do prato */
+.promo-image-container img {
     width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
+    height: 400px; /* Altura fixa para a imagem */
+    object-fit: cover;
 }
 
-.menu-table th {
-    background: linear-gradient(45deg, #3498db, #2980b9);
-    color: white;
-    padding: 1rem;
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.menu-table td {
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.3s ease;
-}
-
-.menu-table tr:hover td {
-    background-color: #f8f9fa;
-}
-
-.menu-table tr:last-child td {
-    border-bottom: none;
-}
-
-.menu-table td:last-child {
-    font-weight: bold;
-    color: #e74c3c;
-    font-size: 1.1rem;
-}
-
-/* Slide 3 - Combos */
-#slide-combos {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-}
-
-#slide-combos h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #2c3e50;
-}
-
-.combo-table-container {
-    overflow-x: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.combo-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    font-size: 0.9rem;
-}
-
-.combo-table th {
-    background: linear-gradient(45deg, #f39c12, #e67e22);
-    color: white;
-    padding: 0.8rem;
-    text-align: left;
-    font-weight: bold;
-}
-
-.combo-table td {
-    padding: 0.8rem;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.3s ease;
-}
-
-.combo-table tr:hover td {
-    background-color: #f8f9fa;
-}
-
-.combo-table tr:last-child td {
-    border-bottom: none;
-}
-
-.combo-table td:nth-child(4),
-.combo-table td:nth-child(5) {
-    font-weight: bold;
-    color: #e74c3c;
-}
-
-.combo-table td:nth-child(5) {
-    color: #27ae60;
-}
-
-/* Indicadores do carrossel */
-.carousel-indicators {
+/* Centralizar o conteúdo da promoção verticalmente */
+main {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.9);
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 0;
+    padding: 0;
 }
 
-.indicator {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: none;
-    background: #ddd;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.cta-button {
+    box-shadow: 0 8px 20px rgba(48, 178, 127, 0.3) !important;
 }
 
-.indicator.active {
-    background: #e74c3c;
-    transform: scale(1.2);
+.new-price {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
-.indicator:hover {
-    background: #c0392b;
-}
-
-/* Controles de navegação */
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-}
-
-.carousel-control:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.prev {
-    left: 20px;
-}
-
-.next {
-    right: 20px;
-}
-
-/* Footer */
-footer {
-    background: #2c3e50;
-    color: white;
-    margin-top: 3rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 3rem 0;
-}
-
-.footer-section h3 {
-    margin-bottom: 1rem;
-    color: #e74c3c;
-    font-size: 1.2rem;
-}
-
-.footer-section p {
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 1rem 0;
-    border-top: 1px solid #34495e;
-    opacity: 0.8;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .slide {
-        padding: 1.5rem;
-    }
-    
-    .promo-section h2,
-    #slide-cardapio h2,
-    #slide-combos h2 {
-        font-size: 2rem;
-    }
-    
-    .menu-table,
-    .combo-table {
-        font-size: 0.8rem;
-    }
-    
-    .menu-table th,
-    .menu-table td,
-    .combo-table th,
-    .combo-table td {
-        padding: 0.5rem;
-    }
-    
-    .carousel-control {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    
-    .prev {
-        left: 10px;
-    }
-    
-    .next {
-        right: 10px;
-    }
-    
-    nav ul {
-        gap: 1rem;
-    }
-    
-    nav a {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    .slide {
-        padding: 1rem;
-    }
-    
-    .logo {
-        font-size: 1.5rem;
-    }
-    
-    .promo-section h2,
-    #slide-cardapio h2,
-    #slide-combos h2 {
-        font-size: 1.5rem;
-    }
-    
-    .day-display {
-        font-size: 1.2rem;
-    }
-    
-    .new-price {
-        font-size: 1.5rem;
-    }
-    
-    .cta-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-}
-
-/* Animações */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.slide.active .slide-content {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-/* Efeitos de hover para tabelas */
-.menu-table tr:hover,
-.combo-table tr:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Gradientes animados */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.promo-details h2 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
 body {
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    background-size: auto !important;
+    animation: none !important;
 }
+
+.day-display {
+    background-color: rgba(48, 178, 127, 0.1) !important;
+}
+
 

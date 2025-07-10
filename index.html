@@ -7,149 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <img src="imagens/logo.jpeg" alt="Logo Temakeria Sakura" class="logo">
+    </header>
     <main>
-        <div class="carousel-container">
-            <!-- Indicadores do carrossel -->
-            <div class="carousel-indicators">
-                <button class="indicator active" data-slide="0"></button>
-                <button class="indicator" data-slide="1"></button>
-                <button class="indicator" data-slide="2"></button>
+        <div class="promo-container">
+            <div class="promo-image-container">
+                <img id="promo-image" src="images/temaki1.jpg" alt="Temaki do dia">
             </div>
-
-            <!-- Slides do carrossel -->
-            <div class="carousel-wrapper">
-                <div class="carousel-slides">
-                    <!-- Slide 1: Promoção do Dia -->
-                    <div class="slide active" id="slide-promocao">
-                        <div class="slide-content">
-                            <div class="promo-section">
-                                <h2>🎌 Promoção do Dia</h2>
-                                <div class="day-display">
-                                    <span id="current-day"></span>
-                                </div>
-                                <div class="promo-image-container">
-                                    <img id="promo-image" src="images/temaki1.jpg" alt="Temaki do dia">
-                                </div>
-                                <div class="promo-details">
-                                    <h3 id="promo-title">Temaki Especial</h3>
-                                    <p id="promo-description">Delicioso temaki com ingredientes frescos do dia!</p>
-                                    <div class="price-container">
-                                        <span class="old-price" id="old-price">R$ 25,00</span>
-                                        <span class="new-price" id="new-price">R$ 18,90</span>
-                                    </div>
-                                    <button class="cta-button">Peça Agora!</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2: Tabela de Preços Individual -->
-                    <div class="slide" id="slide-cardapio">
-                        <div class="slide-content">
-                            <h2>🍱 Cardápio Individual</h2>
-                            <div class="menu-table-container">
-                                <table class="menu-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Temaki</th>
-                                            <th>Ingredientes</th>
-                                            <th>Preço</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Temaki Salmão</td>
-                                            <td>Salmão fresco, arroz, nori, pepino</td>
-                                            <td>R$ 22,90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Temaki Atum</td>
-                                            <td>Atum fresco, arroz, nori, cebolinha</td>
-                                            <td>R$ 24,90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Temaki Camarão</td>
-                                            <td>Camarão empanado, arroz, nori, maionese</td>
-                                            <td>R$ 26,90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Temaki Skin</td>
-                                            <td>Pele de salmão, arroz, nori, cebolinha</td>
-                                            <td>R$ 20,90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Temaki Vegetariano</td>
-                                            <td>Pepino, cenoura, abacate, arroz, nori</td>
-                                            <td>R$ 18,90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Temaki Philadelphia</td>
-                                            <td>Salmão, cream cheese, arroz, nori</td>
-                                            <td>R$ 28,90</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3: Tabela de Combos -->
-                    <div class="slide" id="slide-combos">
-                        <div class="slide-content">
-                            <h2>🎁 Combos Especiais</h2>
-                            <div class="combo-table-container">
-                                <table class="combo-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Combo</th>
-                                            <th>Itens Inclusos</th>
-                                            <th>Preço Individual</th>
-                                            <th>Preço Combo</th>
-                                            <th>Economia</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Combo Dupla</td>
-                                            <td>2 Temakis + Refrigerante</td>
-                                            <td>R$ 50,80</td>
-                                            <td>R$ 42,90</td>
-                                            <td>R$ 7,90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Combo Família</td>
-                                            <td>4 Temakis + 2 Refrigerantes</td>
-                                            <td>R$ 101,60</td>
-                                            <td>R$ 85,90</td>
-                                            <td>R$ 15,70</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Combo Executivo</td>
-                                            <td>1 Temaki + Missoshiru + Refrigerante</td>
-                                            <td>R$ 32,80</td>
-                                            <td>R$ 28,90</td>
-                                            <td>R$ 3,90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Combo Premium</td>
-                                            <td>3 Temakis Premium + Suco Natural</td>
-                                            <td>R$ 86,70</td>
-                                            <td>R$ 75,90</td>
-                                            <td>R$ 10,80</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Combo Festa</td>
-                                            <td>6 Temakis + 3 Refrigerantes + Sobremesa</td>
-                                            <td>R$ 152,40</td>
-                                            <td>R$ 129,90</td>
-                                            <td>R$ 22,50</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+            <div class="promo-details">
+                <h2>🎌 Promoção do Dia</h2>
+                <div class="day-display">
+                    <span id="current-day"></span>
                 </div>
+                <h3 id="promo-title">Temaki Especial</h3>
+                <p id="promo-description">Delicioso temaki com ingredientes frescos do dia!</p>
+                <div class="price-container">
+                    <span class="old-price" id="old-price">R$ 25,00</span>
+                    <span class="new-price" id="new-price">R$ 18,90</span>
+                </div>
+                <button class="cta-button">Peça Agora!</button>
             </div>
         </div>
     </main>

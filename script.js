@@ -29,11 +29,11 @@ const promocoesPorDia = {
         precoNovo: 'R$ 16,90'
     },
     4: { // Quinta
-        imagem: 'images/temaki5.jpg',
-        titulo: 'Temaki Philadelphia',
-        descricao: 'Quinta-feira especial com nosso famoso temaki Philadelphia!',
-        precoAntigo: 'R$ 32,00',
-        precoNovo: 'R$ 26,90'
+        imagem: 'imagens/poke.jpeg',
+        titulo: 'Qualquer poke',
+        descricao: 'Escolha qualquer um de nossos deliciosos pokes!',
+        precoAntigo: 'R$ 50,00',
+        precoNovo: 'R$ 43,00'
     },
     5: { // Sexta
         imagem: 'images/temaki6.jpg',
