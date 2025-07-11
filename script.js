@@ -36,10 +36,10 @@ const promocoesPorDia = {
         precoNovo: 'R$ 43,00'
     },
     5: { // Sexta
-        imagem: 'images/temaki6.jpg',
-        titulo: 'Temaki Skin Crocante',
-        descricao: 'Sexta-feira é dia de celebrar! Temaki skin com pele de salmão crocante.',
-        precoAntigo: 'R$ 26,00',
+        imagem: 'images/hotholl.jpg',
+        titulo: '10 Hotholl Crocante',
+        descricao: 'Sexta-feira é dia de celebrar!',
+        precoAntigo: 'R$ 35,00',
         precoNovo: 'R$ 19,90'
     },
     6: { // Sábado
