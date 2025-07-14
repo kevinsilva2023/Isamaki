@@ -43,11 +43,11 @@ const promocoesPorDia = {
         precoNovo: 'R$ 19,90'
     },
     6: { // Sábado
-        imagem: 'images/temaki7.jpg',
-        titulo: 'Temaki Mix Especial',
-        descricao: 'Sábado é dia de festa! Nosso temaki mix com os melhores ingredientes.',
-        precoAntigo: 'R$ 35,00',
-        precoNovo: 'R$ 28,90'
+        imagem: 'imagens/poke.jpeg',
+        titulo: 'Qualquer poke',
+        descricao: 'Escolha qualquer um de nossos deliciosos pokes!',
+        precoAntigo: 'R$ 50,00',
+        precoNovo: 'R$ 43,00'
     }
 };
 
