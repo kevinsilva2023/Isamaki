@@ -8,11 +8,11 @@ const promocoesPorDia = {
         precoNovo: 'R$ 18,90'
     },
     1: { // Segunda
-        imagem: 'images/temaki2.jpg',
-        titulo: 'Temaki Atum Premium',
-        descricao: 'Comece a semana com energia! Temaki de atum fresco com desconto especial.',
-        precoAntigo: 'R$ 28,00',
-        precoNovo: 'R$ 21,90'
+        imagem: 'imagens/temaki2.jpeg',
+        titulo: 'Temaki Salmão com Cream Cheese',
+        descricao: 'Comece a semana com energia! Temaki com desconto especial.',
+        precoAntigo: 'R$ 29,90',
+        precoNovo: 'R$ 19,90'
     },
     2: { // Terça
         imagem: 'images/temaki3.jpg',
