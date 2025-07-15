@@ -15,11 +15,11 @@ const promocoesPorDia = {
         precoNovo: 'R$ 19,90'
     },
     2: { // Terça
-        imagem: 'images/temaki3.jpg',
-        titulo: 'Temaki Camarão Crocante',
-        descricao: 'Terça-feira é dia de inovar! Experimente nosso temaki de camarão empanado.',
-        precoAntigo: 'R$ 30,00',
-        precoNovo: 'R$ 24,90'
+        imagem: 'imagens/temaki3.jpeg',
+        titulo: 'Temaki Salmão Grelhado',
+        descricao: 'Terça-feira é dia de inovar! Experimente nosso temaki de salmão grelhado.',
+        precoAntigo: 'R$ 29,90',
+        precoNovo: 'R$ 19,90'
     },
     3: { // Quarta
         imagem: 'images/temaki4.jpg',
