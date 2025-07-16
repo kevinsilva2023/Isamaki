@@ -22,11 +22,11 @@ const promocoesPorDia = {
         precoNovo: 'R$ 24,90'
     },
     3: { // Quarta
-        imagem: 'images/temaki4.jpg',
-        titulo: 'Temaki Vegetariano',
-        descricao: 'Meio da semana pede leveza! Temaki vegetariano com ingredientes frescos.',
-        precoAntigo: 'R$ 22,00',
-        precoNovo: 'R$ 16,90'
+        imagem: 'imagens/yakisoba.jpg',
+        titulo: 'Yakisoba',
+        descricao: 'Meio da semana pede leveza! Yakisoba de Carne ou Frango.',
+        precoAntigo: 'R$ 50,00',
+        precoNovo: 'R$ 43,90'
     },
     4: { // Quinta
         imagem: 'imagens/poke.jpeg',
