@@ -7,7 +7,7 @@ const promocoesPorDia = {
         precoAntigo: 'R$ 25,00',
         precoNovo: 'R$ 18,90'
     },
-    1: { // Segunda
+    5: { // Segunda
         imagem: 'imagens/temaki2.jpeg',
         titulo: 'Temaki Salmão com Cream Cheese',
         descricao: 'Comece a semana com energia! Temaki com desconto especial.',
@@ -21,7 +21,7 @@ const promocoesPorDia = {
         precoAntigo: 'R$ 29,90',
         precoNovo: 'R$ 24,90'
     },
-    5: { // Quarta
+    1: { // Quarta
         imagem: 'imagens/yakisoba.jpg',
         titulo: 'Yakisoba',
         descricao: 'Meio da semana pede leveza! Yakisoba de Carne ou Frango.',
