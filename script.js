@@ -40,7 +40,7 @@ const promocoesPorDia = {
         titulo: '10 Hotholl Crocante',
         descricao: 'Sexta-feira é dia de celebrar!',
         precoAntigo: 'R$ 35,00',
-        precoNovo: 'R$ 24,90'
+        precoNovo: 'R$ 22,90',
     },
     6: { // Sábado
         imagem: 'imagens/poke.jpeg',
