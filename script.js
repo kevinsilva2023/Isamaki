@@ -37,7 +37,7 @@ const promocoesPorDia = {
     },
     3: { // Sexta
         imagem: 'imagens/hotholl.jpg',
-        titulo: '10 Hotholl Crocante',
+        titulo: '8 Hotholl Crocante',
         descricao: 'Sexta-feira é dia de celebrar!',
         precoAntigo: 'R$ 35,00',
         precoNovo: 'R$ 22,90',
