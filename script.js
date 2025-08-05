@@ -14,35 +14,35 @@ const promocoesPorDia = {
         precoAntigo: 'R$ 29,90',
         precoNovo: 'R$ 24,90'
     },
-    3: { // Terça
+    2: { // Terça
         imagem: 'imagens/temaki3.jpeg',
         titulo: 'Temaki Salmão Grelhado',
         descricao: 'Terça-feira é dia de inovar! Experimente nosso temaki de salmão grelhado.',
         precoAntigo: 'R$ 29,90',
         precoNovo: 'R$ 24,90'
     },
-    4: { // Quarta
+    3: { // Quarta
         imagem: 'imagens/yakisoba.jpg',
         titulo: 'Yakisoba',
         descricao: 'Meio da semana pede leveza! Yakisoba de Carne ou Frango.',
         precoAntigo: 'R$ 50,00',
         precoNovo: 'R$ 42,90'
     },
-    5: { // Quinta
+    4: { // Quinta
         imagem: 'imagens/poke.jpeg',
         titulo: 'Qualquer poke',
         descricao: 'Escolha qualquer um de nossos deliciosos pokes!',
         precoAntigo: 'R$ 50,00',
         precoNovo: 'R$ 43,00'
     },
-    6: { // Sexta
+    5: { // Sexta
         imagem: 'imagens/hotholl.jpg',
         titulo: '8 Hotholl Crocante',
         descricao: 'Sexta-feira é dia de celebrar!',
         precoAntigo: 'R$ 35,00',
         precoNovo: 'R$ 22,90',
     },
-    7: { // Sábado
+    6: { // Sábado
         imagem: 'imagens/poke.jpeg',
         titulo: 'Qualquer poke',
         descricao: 'Escolha qualquer um de nossos deliciosos pokes!',
