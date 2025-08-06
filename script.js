@@ -26,7 +26,7 @@ const promocoesPorDia = {
         titulo: 'Yakisoba',
         descricao: 'Meio da semana pede leveza! Yakisoba de Carne ou Frango.',
         precoAntigo: 'R$ 50,00',
-        precoNovo: 'R$ 42,90'
+        precoNovo: 'R$ 41,90'
     },
     4: { // Quinta
         imagem: 'imagens/poke.jpeg',
