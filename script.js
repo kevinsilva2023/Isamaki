@@ -21,12 +21,12 @@ const promocoesPorDia = {
         precoAntigo: 'R$ 29,90',
         precoNovo: 'R$ 23,90'
     },
-    3: { // Quarta
+    5: { // Quarta
         imagem: 'imagens/yakisoba.jpg',
-        titulo: 'Yakisoba',
-        descricao: 'Meio da semana pede leveza! Yakisoba de Carne ou Frango.',
+        titulo: 'Yakisoba de Frango',
+        descricao: 'Meio da semana pede leveza! Yakisoba de Frango.',
         precoAntigo: 'R$ 50,00',
-        precoNovo: 'R$ 41,90'
+        precoNovo: 'R$ 35,90'
     },
     4: { // Quinta
         imagem: 'imagens/poke.jpeg',
@@ -35,7 +35,7 @@ const promocoesPorDia = {
         precoAntigo: 'R$ 50,00',
         precoNovo: 'R$ 43,00'
     },
-    5: { // Sexta
+    3: { // Sexta
         imagem: 'imagens/hotholl.jpg',
         titulo: '8 Hotholl Crocante',
         descricao: 'Sexta-feira é dia de celebrar!',
