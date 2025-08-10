@@ -23,10 +23,10 @@ const promocoesPorDia = {
     },
     0: { // Quarta
         imagem: 'imagens/yakisoba.jpg',
-        titulo: 'Yakisoba de Frango',
-        descricao: 'Meio da semana pede leveza! Yakisoba de Frango.',
+        titulo: 'Yakisoba de Carne',
+        descricao: 'Nesse domingo frio, cabe um yakisoba quentinho',
         precoAntigo: 'R$ 50,00',
-        precoNovo: 'R$ 35,90'
+        precoNovo: 'R$ 40,00'
     },
     4: { // Quinta
         imagem: 'imagens/poke.jpeg',
