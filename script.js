@@ -1,6 +1,6 @@
 // Configuração das promoções por dia da semana
 const promocoesPorDia = {
-    0: { // Domingo
+    5: { // Domingo
         imagem: 'images/temaki1.jpg',
         titulo: 'Temaki Salmão Especial',
         descricao: 'Domingo é dia de relaxar com nosso delicioso temaki de salmão fresco!',
@@ -21,7 +21,7 @@ const promocoesPorDia = {
         precoAntigo: 'R$ 29,90',
         precoNovo: 'R$ 23,90'
     },
-    5: { // Quarta
+    0: { // Quarta
         imagem: 'imagens/yakisoba.jpg',
         titulo: 'Yakisoba de Frango',
         descricao: 'Meio da semana pede leveza! Yakisoba de Frango.',
