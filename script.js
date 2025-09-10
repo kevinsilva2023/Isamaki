@@ -12,14 +12,14 @@ const promocoesPorDia = {
         titulo: 'Temaki Salmão com Cream Cheese',
         descricao: 'Comece a semana com energia! Temaki com desconto especial.',
         precoAntigo: 'R$ 29,90',
-        precoNovo: 'R$ 23,90'
+        precoNovo: 'R$ 24,90'
     },
     2: { // Terça
         imagem: 'imagens/temaki3.jpeg',
         titulo: 'Temaki Salmão Grelhado',
         descricao: 'Terça-feira é dia de inovar! Experimente nosso temaki de salmão grelhado.',
         precoAntigo: 'R$ 29,90',
-        precoNovo: 'R$ 23,90'
+        precoNovo: 'R$ 24,90'
     },
     5: { // Quarta
         imagem: 'imagens/yakisoba.jpg',
