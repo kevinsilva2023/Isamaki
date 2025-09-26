@@ -3,34 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temakeria Sakura - Delivery de Temakis</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Carousel Automático</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        background: linear-gradient(
+          135deg, 
+          rgba(13, 45, 84, 0.1) 0%, 
+          rgba(37, 111, 173, 0.1) 100%
+        );            min-height: 100vh;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .slide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .slide.ativo {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .slide img {
+            display: block;
+            width: 1400px;
+            border-radius: 15px;
+            filter: brightness(1.1) contrast(1.05) saturate(1.1);
+            transition: filter 0.5s ease;
+        }
+
+        .slide:hover img {
+            filter: brightness(1.2) contrast(1.1) saturate(1.2);
+        }
+
+        /* Efeito de borda animada */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, 
+                #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, 
+                #feca57, #ff9ff3, #54a0ff, #5f27cd);
+            background-size: 400% 400%;
+            border-radius: 23px;
+            z-index: -1;
+            animation: gradienteBorda 8s ease infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes gradienteBorda {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Contador de slides estilizado */
+        .contador-slides {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .numero-atual {
+            color: #ffd700;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Partículas flutuantes coloridas */
+        .particulas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .particula {
+            position: absolute;
+            border-radius: 50%;
+            animation: flutuar 20s linear infinite;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .particula:nth-child(1) {
+            width: 4px;
+            height: 4px;
+            background: #ff6b6b;
+            animation-duration: 25s;
+        }
+
+        .particula:nth-child(2) {
+            width: 6px;
+            height: 6px;
+            background: #4ecdc4;
+            animation-duration: 30s;
+        }
+
+        .particula:nth-child(3) {
+            width: 3px;
+            height: 3px;
+            background: #45b7d1;
+            animation-duration: 22s;
+        }
+
+        .particula:nth-child(4) {
+            width: 5px;
+            height: 5px;
+            background: #96ceb4;
+            animation-duration: 28s;
+        }
+
+        .particula:nth-child(5) {
+            width: 4px;
+            height: 4px;
+            background: #feca57;
+            animation-duration: 26s;
+        }
+
+        @keyframes flutuar {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) translateX(10px) rotate(45deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) translateX(50px) rotate(315deg) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) translateX(60px) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Efeito de ondas no fundo */
+        .ondas {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(90deg, 
+                rgba(255, 107, 107, 0.1) 0%,
+                rgba(78, 205, 196, 0.1) 25%,
+                rgba(69, 183, 209, 0.1) 50%,
+                rgba(150, 206, 180, 0.1) 75%,
+                rgba(254, 202, 87, 0.1) 100%);
+            z-index: 10;
+        }
+
+        .ondas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 50px,
+                rgba(255, 255, 255, 0.03) 50px,
+                rgba(255, 255, 255, 0.03) 100px
+            );
+            animation: ondular 15s linear infinite;
+        }
+
+        @keyframes ondular {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Indicador de tempo discreto */
+        .indicador-tempo {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .barra-tempo {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            border-radius: 2px;
+            animation: tempoProgresso 15s linear infinite;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        @keyframes tempoProgresso {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .slide img {
+                max-width: 95vw;
+                max-height: 80vh;
+            }
+            
+            .contador-slides {
+                bottom: 20px;
+                right: 20px;
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            
+            .numero-atual {
+                font-size: 14px;
+            }
+            
+            .indicador-tempo {
+                width: 150px;
+                top: 20px;
+            }
+        }
+
+        /* Efeito de pulsação suave */
+        .slide.ativo {
+            animation: pulsarSuave 4s ease-in-out infinite;
+        }
+
+        @keyframes pulsarSuave {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.005); }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="imagens/logo.jpeg" alt="Logo Temakeria Sakura" class="logo">
-    </header>
-    <main>
-        <div class="promo-container">
-            <div class="promo-image-container">
-                <img id="promo-image" src="images/temaki1.jpg" alt="Temaki do dia">
-            </div>
-            <div class="promo-details">
-                <h2>🎌 Promoção do Dia</h2>
-                <div class="day-display">
-                    <span id="current-day"></span>
-                </div>
-                <h3 id="promo-title"></h3>
-                <p id="promo-description"></p>
-                <div class="price-container">
-                    <span class="old-price" id="old-price"></span>
-                    <span class="new-price" id="new-price"></span>
-                </div>
-            </div>
+    <div class="carousel-container">
+        <!-- Indicador de tempo
+        <div class="indicador-tempo">
+            <div class="barra-tempo"></div>
+        </div> -->
+        
+        <!-- Slides -->
+        <div class="slide ativo">
+            <img src="1.png" alt="Imagem 1">
         </div>
-    </main>
+        <div class="slide">
+            <img src="2.png" alt="Imagem 2">
+        </div>
+        <div class="slide">
+            <img src="3.png" alt="Imagem 3">
+        </div>
+        <div class="slide">
+            <img src="4.png" alt="Imagem 4">
+        </div>
+        <div class="slide">
+            <img src="5.png" alt="Imagem 5">
+        </div>
+        <div class="slide">
+            <img src="6.png" alt="Imagem 6">
+        </div>
 
-    <script src="script.js"></script>
+        <!-- Contador de slides -->
+        <div class="contador-slides">
+            <span class="numero-atual">1</span> / 6
+        </div>
+
+        <!-- Partículas decorativas -->
+        <!-- <div class="particulas">
+            <div class="particula"></div>
+            <div class="particula"></div>
+            <div class="particula"></div>
+            <div class="particula"></div>
+            <div class="particula"></div>
+        </div> -->
+    </div>
+
+    <script>
+        let indiceSlideAtual = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const contadorElemento = document.querySelector('.numero-atual');
+
+        // Função para mostrar próximo slide
+        function proximoSlide() {
+            // Remove classe ativo do slide atual
+            slides[indiceSlideAtual].classList.remove('ativo');
+            
+            // Avança para o próximo slide
+            indiceSlideAtual = (indiceSlideAtual + 1) % totalSlides;
+            
+            // Adiciona classe ativo ao novo slide
+            slides[indiceSlideAtual].classList.add('ativo');
+            
+            // Atualiza contador
+            contadorElemento.textContent = indiceSlideAtual + 1;
+            
+            // Reinicia a barra de tempo
+            reiniciarBarraTempo();
+            
+            console.log(`Mudou para slide ${indiceSlideAtual + 1}`);
+        }
+
+        // Função para reiniciar a barra de tempo
+        function reiniciarBarraTempo() {
+            const barraTempo = document.querySelector('.barra-tempo');
+            barraTempo.style.animation = 'none';
+            setTimeout(() => {
+                barraTempo.style.animation = 'tempoProgresso 15s linear infinite';
+            }, 10);
+        }
+
+        // Criar partículas adicionais dinamicamente
+        function criarParticulaExtra() {
+            const particula = document.createElement('div');
+            particula.classList.add('particula');
+            
+            // Cores aleatórias
+            const cores = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+            const corAleatoria = cores[Math.floor(Math.random() * cores.length)];
+            
+            particula.style.background = corAleatoria;
+            particula.style.width = (Math.random() * 4 + 2) + 'px';
+            particula.style.height = particula.style.width;
+            particula.style.left = Math.random() * 100 + 'vw';
+            particula.style.animationDelay = Math.random() * 20 + 's';
+            particula.style.animationDuration = (Math.random() * 10 + 20) + 's';
+            
+            document.querySelector('.particulas').appendChild(particula);
+
+            // Remove a partícula após a animação
+            setTimeout(() => {
+                if (particula.parentNode) {
+                    particula.parentNode.removeChild(particula);
+                }
+            }, 30000);
+        }
+
+        // Pausar/retomar animações ao passar o mouse
+        const container = document.querySelector('.carousel-container');
+        let intervaloSlideshow;
+
+        function iniciarSlideshow() {
+            intervaloSlideshow = setInterval(proximoSlide, 10000); // 15 segundos
+        }
+
+        function pararSlideshow() {
+            clearInterval(intervaloSlideshow);
+        }
+
+        container.addEventListener('mouseenter', () => {
+            document.querySelector('.barra-tempo').style.animationPlayState = 'paused';
+            pararSlideshow();
+        });
+
+        container.addEventListener('mouseleave', () => {
+            document.querySelector('.barra-tempo').style.animationPlayState = 'running';
+            iniciarSlideshow();
+        });
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Carousel automático iniciado!');
+            console.log('6 imagens, 15 segundos cada = 90 segundos total (1min 30s)');
+            
+            // Inicia o slideshow
+            iniciarSlideshow();
+            
+            // Criar partículas extras periodicamente
+            setInterval(criarParticulaExtra, 5000);
+            
+            // Criar algumas partículas iniciais
+            for (let i = 0; i < 8; i++) {
+                setTimeout(criarParticulaExtra, i * 1000);
+            }
+        });
+
+        // Detectar quando a página fica visível novamente
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                reiniciarBarraTempo();
+            }
+        });
+    </script>
 </body>
 </html>
 
